@@ -1,3 +1,5 @@
+import { FaBalanceScaleLeft } from "react-icons/fa";
+
 export default function Header(): JSX.Element {
   return (
     <header
@@ -5,10 +7,7 @@ export default function Header(): JSX.Element {
       data-testid="header">
       <nav>
         <div className="logo">
-          <img
-            src="src/assets/images/icon.svg"
-            alt="Todoist"
-          />
+         <FaBalanceScaleLeft />
         </div>
         <div className="settings">
           <ul>
@@ -31,7 +30,7 @@ export default function Header(): JSX.Element {
                 type="button"
                 // onClick={() => setDarkMode(!darkMode)}
                 >
-                {/* <FaPizzaSlice /> */}
+                <FaBalanceScaleLeft />
               </button>
             </li>
           </ul>

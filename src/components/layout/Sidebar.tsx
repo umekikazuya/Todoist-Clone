@@ -1,3 +1,10 @@
+import {
+  FaChevronDown,
+  FaInbox,
+  FaRegCalendar,
+  FaRegCalendarAlt,
+} from 'react-icons/fa';
+
 export default function Sidebar() {
   return (
     <div
@@ -23,7 +30,9 @@ export default function Sidebar() {
                 // setSelectedProject('INBOX');
               }
             }}>
-            <span>{/* <FaInbox /> */}</span>
+            <span>
+              <FaInbox />
+            </span>
             <span>Inbox</span>
           </div>
         </li>
@@ -46,7 +55,9 @@ export default function Sidebar() {
                 // setSelectedProject('TODAY');
               }
             }}>
-            <span>{/* <FaRegCalendar /> */}</span>
+            <span>
+              <FaRegCalendar />
+            </span>
             <span>Today</span>
           </div>
         </li>
@@ -69,7 +80,9 @@ export default function Sidebar() {
                 // setSelectedProject('NEXT_7');
               }
             }}>
-            <span>{/* <FaRegCalendarAlt /> */}</span>
+            <span>
+              <FaRegCalendarAlt />
+            </span>
             <span>Next 7 days</span>
           </div>
         </li>
@@ -84,9 +97,9 @@ export default function Sidebar() {
         role="button"
         tabIndex={0}>
         <span>
-          {/* <FaChevronDown
-            className={!showProjects ? 'hidden-projects' : undefined}
-          /> */}
+          <FaChevronDown
+          // className={!showProjects ? 'hidden-projects' : undefined}
+          />
         </span>
         <h2>Projects</h2>
       </div>
