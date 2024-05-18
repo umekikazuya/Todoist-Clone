@@ -10,16 +10,9 @@
     "plugin:react-hooks/recommended",
     "prettier"
   ],
-  "ignorePatterns": [
-    "dist",
-    ".eslintrc.cjs"
-  ],
+  "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "react-refresh",
-    "react"
-  ],
+  "plugins": ["@typescript-eslint", "react-refresh", "react"],
   "rules": {
     "react-refresh/only-export-components": [
       "warn",
