@@ -1,4 +1,4 @@
-import CurrentFilter from '../feature/TaskFilter/CurrentFilter';
+import CurrentTaskFilter from '../feature/TaskFilter/CurrentFilter';
 import {Tasks} from '../feature/task/Tasks';
 
 export default function Content(): JSX.Element {
@@ -7,7 +7,7 @@ export default function Content(): JSX.Element {
       className="tasks"
       data-testid="tasks">
       <h2 data-testid="project-name">
-        <CurrentFilter />: Todoist
+        <CurrentTaskFilter />: Todoist
       </h2>
       <Tasks />
 
