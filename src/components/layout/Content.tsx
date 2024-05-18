@@ -10,8 +10,6 @@ export default function Content(): JSX.Element {
         <CurrentTaskFilter />: Todoist
       </h2>
       <Tasks />
-
-      {/* <AddTask /> */}
     </div>
   );
 }

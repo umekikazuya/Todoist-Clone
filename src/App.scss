@@ -278,7 +278,7 @@ header {
   &__project {
     cursor: pointer;
 
-    div:nth-child(1) {
+    .project-item {
       padding: 5px 0;
       padding-left: 10px;
       padding-right: 15px;
@@ -426,7 +426,7 @@ header {
 .project-delete-modal {
   position: relative;
 
-  &__inner {
+  & > &__inner {
     @include box-overlay();
     z-index: 99;
     width: 200px;

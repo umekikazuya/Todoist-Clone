@@ -4,6 +4,7 @@ import {
   FaRegCalendar,
   FaRegCalendarAlt,
 } from 'react-icons/fa';
+import Projects from '../feature/project/Projects';
 
 export default function Sidebar() {
   return (
@@ -103,10 +104,7 @@ export default function Sidebar() {
         </span>
         <h2>Projects</h2>
       </div>
-
-      {/* <ul className="sidebar__projects">{showProjects && <Projects />}</ul> */}
-
-      {/* {showProjects && <AddProject />} */}
+      <Projects />
     </div>
   );
 }
