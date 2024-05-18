@@ -15,7 +15,7 @@ export const useTasks = (filter: string) => {
       .onSnapshot((snapshot) => {
         const newTasks = snapshot.docs.map((doc) => ({
           id: doc.id,
-          ...(doc.data() as Task),
+          ...(doc.data() as Omit<Task, 'id'>),
         }));
 
         setTasks(newTasks);
