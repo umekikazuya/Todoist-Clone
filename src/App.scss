@@ -426,7 +426,7 @@ header {
 .project-delete-modal {
   position: relative;
 
-  & > &__inner {
+  &__inner {
     @include box-overlay();
     z-index: 99;
     width: 200px;
