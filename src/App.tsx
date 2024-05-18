@@ -1,6 +1,6 @@
 import './App.scss';
-import {FilterProvider} from './components/FilterProvider';
-import {ProjectsProvider} from './components/ProjectsProvider';
+import {FilterProvider} from './components/provider/FilterProvider';
+import {ProjectsProvider} from './components/provider/ProjectsProvider';
 import Content from './components/layout/Content';
 import Header from './components/layout/Header';
 import Sidebar from './components/layout/Sidebar';
