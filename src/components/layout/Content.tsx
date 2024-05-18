@@ -1,4 +1,4 @@
-import CurrentFilter from '../feature/filter/CurrentFilter';
+import CurrentFilter from '../feature/TaskFilter/CurrentFilter';
 import {Tasks} from '../feature/task/Tasks';
 
 export default function Content(): JSX.Element {

@@ -1,6 +1,5 @@
 import './App.scss';
-import {FilterProvider} from './components/provider/FilterProvider';
-import {ProjectsProvider} from './components/provider/ProjectsProvider';
+import {ProjectsProvider, TaskFilterProvider} from './components/provider';
 import Content from './components/layout/Content';
 import Header from './components/layout/Header';
 import Sidebar from './components/layout/Sidebar';
@@ -8,7 +7,7 @@ import Sidebar from './components/layout/Sidebar';
 function App() {
   return (
     <>
-      <FilterProvider>
+      <TaskFilterProvider>
         <ProjectsProvider>
           <Header />
           <section className="content">
@@ -16,7 +15,7 @@ function App() {
             <Content />
           </section>
         </ProjectsProvider>
-      </FilterProvider>
+      </TaskFilterProvider>
     </>
   );
 }
