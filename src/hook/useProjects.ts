@@ -9,12 +9,12 @@ export const useProjects = (userId: string) => {
     const unsubscribe = firestore
       .collection('projects')
       .where('userId', '==', userId)
-      .orderBy('projectId')
       .onSnapshot((snapshot) => {
         const fetchedProjects = snapshot.docs.map((doc) => ({
-          ...(doc.data() as Project),
-          docId: doc.id,
+          id: doc.id,
+          ...(doc.data() as Omit<Project, 'id'>),
         }));
+        
         setProjects(fetchedProjects);
       });
 
