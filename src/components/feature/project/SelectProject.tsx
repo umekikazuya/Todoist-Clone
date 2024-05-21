@@ -4,13 +4,13 @@ import React from 'react';
 const {VITE_USER_ID} = import.meta.env;
 
 interface Props {
-  setProject: React.Dispatch<React.SetStateAction<string>>;
+  setProjectValue: React.Dispatch<React.SetStateAction<string>>;
   showProjectOverlay: boolean;
   setShowProjectOverlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function SelectProject({
-  setProject,
+  setProjectValue,
   showProjectOverlay,
   setShowProjectOverlay,
 }: Props) {
@@ -25,12 +25,12 @@ export default function SelectProject({
             <li key={project.id}>
               <div
                 onClick={() => {
-                  setProject(project.id);
+                  setProjectValue(project.id);
                   setShowProjectOverlay(false);
                 }}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
-                    setProject(project.id);
+                    setProjectValue(project.id);
                     setShowProjectOverlay(false);
                   }
                 }}

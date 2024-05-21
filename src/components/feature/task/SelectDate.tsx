@@ -2,18 +2,18 @@ import React from 'react';
 import {FaRegPaperPlane, FaSpaceShuttle, FaSun} from 'react-icons/fa';
 
 interface Props {
-  setTaskDate: React.Dispatch<React.SetStateAction<string>>;
-  showTaskDate: boolean;
-  setShowTaskDate: React.Dispatch<React.SetStateAction<boolean>>;
+  setTaskDateValue: React.Dispatch<React.SetStateAction<string>>;
+  showTaskDateOverlay: boolean;
+  setShowTaskDateOverlay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function SelectDate({
-  setTaskDate,
-  showTaskDate,
-  setShowTaskDate,
+  setTaskDateValue,
+  showTaskDateOverlay,
+  setShowTaskDateOverlay,
 }: Props) {
   return (
-    showTaskDate && (
+    showTaskDateOverlay && (
       <div
         className="task-date"
         data-testid="task-date-overlay">
@@ -21,13 +21,13 @@ export default function SelectDate({
           <li>
             <div
               onClick={() => {
-                setShowTaskDate(false);
-                setTaskDate(new Date().toLocaleDateString('en-GB'));
+                setShowTaskDateOverlay(false);
+                setTaskDateValue(new Date().toLocaleDateString('en-GB'));
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  setShowTaskDate(false);
-                  setTaskDate(new Date().toLocaleDateString('en-GB'));
+                  setShowTaskDateOverlay(false);
+                  setTaskDateValue(new Date().toLocaleDateString('en-GB'));
                 }
               }}
               data-testid="task-date-today"
@@ -43,15 +43,15 @@ export default function SelectDate({
           <li>
             <div
               onClick={() => {
-                setShowTaskDate(false);
-                setTaskDate(
+                setShowTaskDateOverlay(false);
+                setTaskDateValue(
                   new Date(Date.now() + 86400000).toLocaleDateString('en-GB'),
                 );
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  setShowTaskDate(false);
-                  setTaskDate(
+                  setShowTaskDateOverlay(false);
+                  setTaskDateValue(
                     new Date(Date.now() + 86400000).toLocaleDateString('en-GB'),
                   );
                 }
@@ -69,8 +69,8 @@ export default function SelectDate({
           <li>
             <div
               onClick={() => {
-                setShowTaskDate(false);
-                setTaskDate(
+                setShowTaskDateOverlay(false);
+                setTaskDateValue(
                   new Date(Date.now() + 7 * 86400000).toLocaleDateString(
                     'en-GB',
                   ),
@@ -78,8 +78,8 @@ export default function SelectDate({
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  setShowTaskDate(false);
-                  setTaskDate(
+                  setShowTaskDateOverlay(false);
+                  setTaskDateValue(
                     new Date(Date.now() + 7 * 86400000).toLocaleDateString(
                       'en-GB',
                     ),
