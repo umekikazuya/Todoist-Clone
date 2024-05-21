@@ -1,13 +1,18 @@
-import { FaBalanceScaleLeft } from "react-icons/fa";
+import {FaBalanceScaleLeft} from 'react-icons/fa';
 
-export default function Header(): JSX.Element {
+type Props = {
+  darkMode: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function Header({darkMode, setDarkMode}: Props): JSX.Element {
   return (
     <header
       className="header"
       data-testid="header">
       <nav>
         <div className="logo">
-         <FaBalanceScaleLeft />
+          <FaBalanceScaleLeft />
         </div>
         <div className="settings">
           <ul>
@@ -28,8 +33,7 @@ export default function Header(): JSX.Element {
                 data-testid="dark-mode-action"
                 aria-label="Darkmode on/off"
                 type="button"
-                // onClick={() => setDarkMode(!darkMode)}
-                >
+                onClick={() => setDarkMode(!darkMode)}>
                 <FaBalanceScaleLeft />
               </button>
             </li>
