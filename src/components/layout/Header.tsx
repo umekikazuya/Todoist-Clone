@@ -1,4 +1,6 @@
 import {FaBalanceScaleLeft} from 'react-icons/fa';
+import {AddTask} from '../feature/task/AddTask';
+import {useState} from 'react';
 
 type Props = {
   darkMode: boolean;
@@ -6,6 +8,9 @@ type Props = {
 };
 
 export default function Header({darkMode, setDarkMode}: Props): JSX.Element {
+  const [shouldShowMain, setShouldShowMain] = useState(false);
+  const [showQuickAddTask, setShowQuickAddTask] = useState(false);
+
   return (
     <header
       className="header"
@@ -22,8 +27,8 @@ export default function Header({darkMode, setDarkMode}: Props): JSX.Element {
                 aria-label="Quick add task"
                 type="button"
                 onClick={() => {
-                  // setShowQuickAddTask(true);
-                  // setShouldShowMain(true);
+                  setShowQuickAddTask(true);
+                  setShouldShowMain(true);
                 }}>
                 +
               </button>
@@ -41,12 +46,12 @@ export default function Header({darkMode, setDarkMode}: Props): JSX.Element {
         </div>
       </nav>
 
-      {/* <AddTask
+      <AddTask
         showAddTaskMain={false}
         shouldShowMain={shouldShowMain}
         showQuickAddTask={showQuickAddTask}
         setShowQuickAddTask={setShowQuickAddTask}
-      /> */}
+      />
     </header>
   );
 }
