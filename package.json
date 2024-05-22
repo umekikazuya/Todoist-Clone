@@ -15,7 +15,8 @@
     "firebase": "^10.12.0",
     "moment": "^2.30.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@types/firebase": "^3.2.1",
