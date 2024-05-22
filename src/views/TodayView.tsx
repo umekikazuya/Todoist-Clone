@@ -1,10 +1,8 @@
 import {useState} from 'react';
-import {ProjectsProvider, TaskFilterProvider} from '../provider';
-import Header from '../layout/Header';
-import Sidebar from '../layout/Sidebar';
-import Content from '../layout/Content';
+import { ProjectsProvider, TaskFilterProvider } from '@/components/provider';
+import { Content, Header, Sidebar } from '@/components/layout';
 
-export default function ProjectView(): React.ReactNode {
+export default function TodayView(): React.ReactNode {
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
   return (
