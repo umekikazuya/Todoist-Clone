@@ -1,9 +1,14 @@
-import {Content} from '@/components/layout';
+import { Tasks } from '@/components/feature/task/Tasks';
+import {Header} from '@/components/layout';
+import { useTasks } from '@/hook/useTasks';
 
 export default function TodayView(): React.ReactNode {
+  const tasks = useTasks({projectId: null, isArchive: false});
+
   return (
     <>
-      <Content />
+      <Header title={'今日'} />
+      <Tasks data={tasks} />
     </>
   );
 }
