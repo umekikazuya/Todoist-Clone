@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export default function Filter() {
   return (
     <>
-      <ul>
+      <StyledList>
         <StyledListItem>
           <StyledNavLink to="/inbox">
             <StyledIcon>
@@ -39,10 +39,14 @@ export default function Filter() {
             <Label>近日予定</Label>
           </StyledNavLink>
         </StyledListItem>
-      </ul>
+      </StyledList>
     </>
   );
 }
+
+const StyledList = styled.ul`
+  padding: 10px 0px;
+`;
 
 const StyledListItem = styled.li`
   padding: 3px 0px 3px 5px;

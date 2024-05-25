@@ -51,8 +51,13 @@ li {
 
 input,
 textarea {
-  background-color: initial;
-  border-color: #eee;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 14px;
+  line-height: 1;
 }
 
 textarea {
@@ -105,6 +110,13 @@ iframe {
 a {
   color: #202020;
   text-decoration: none;
+}
+
+button:hover {
+  background-color: #f2efed;
+}
+a:hover {
+  background-color: #f2efed;
 }
 
 button {
