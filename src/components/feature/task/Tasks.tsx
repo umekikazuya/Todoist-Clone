@@ -1,21 +1,21 @@
-import {useTaskFilterContext} from '@/context/hook';
-import {useTasks} from '@/hook/useTasks';
-import React from 'react';
 import Task from './Task';
 import {AddTask} from './AddTask';
+import {Task as TaskType} from '@/model';
+import styled from 'styled-components';
 
-export const Tasks: React.FC = () => {
-  const {currentTaskFilter} = useTaskFilterContext();
-  const tasks = useTasks(currentTaskFilter.key);
-
+export const Tasks = ({data}: {data: TaskType[]}) => {
   return (
     <>
-      <ul className="tasks__list">
-        {tasks.map((task) => (
-          <Task data={task} />
+      <StyledList>
+        {data.map((task) => (
+          <Task key={task.id} data={task} />
         ))}
-      </ul>
+      </StyledList>
       <AddTask />
     </>
   );
 };
+
+const StyledList = styled.ul`
+  padding-top: 16px;
+`;

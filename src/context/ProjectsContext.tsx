@@ -1,4 +1,4 @@
-import {Project} from '@/types';
+import {Project} from '@/model';
 import React, {createContext} from 'react';
 
 type ProjectsContextType = {
