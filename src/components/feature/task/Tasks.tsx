@@ -1,5 +1,4 @@
 import Task from './Task';
-import {AddTask} from './AddTask';
 import {Task as TaskType} from '@/model';
 import styled from 'styled-components';
 
@@ -11,7 +10,7 @@ export const Tasks = ({data}: {data: TaskType[]}) => {
           <Task key={task.id} data={task} />
         ))}
       </StyledList>
-      <AddTask />
+      {/* @todo AddTask */}
     </>
   );
 };
