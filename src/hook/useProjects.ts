@@ -27,8 +27,7 @@ export const useProjects = (userId: string): UseProjects => {
           setProjects(fetchedProjects);
           setLoading(false);
         },
-        (err) => {
-          console.error("Error fetching projects: ", err);
+        () => {
           setError("Failed to fetch projects.");
           setLoading(false);
         }

@@ -1,3 +1,4 @@
+import {AddTask} from '@/components/Task/AddTask';
 import {Header} from '@/components/Layout';
 import {Tasks} from '@/components/Task/Tasks';
 import {useTasks} from '@/hook/useTasks';
@@ -9,6 +10,7 @@ export default function TodayView(): React.ReactNode {
     <>
       <Header title={'今日'} />
       <Tasks data={tasks} />
+      <AddTask />
     </>
   );
 }

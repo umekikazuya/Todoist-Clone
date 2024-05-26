@@ -136,6 +136,10 @@ button:disabled {
   opacity: 0.3;
 }
 
+button:hover {
+  background-color: inherit;
+}
+
 ::-moz-placeholder {
   color: #fff;
   opacity: 1;

@@ -1,5 +1,9 @@
+import {AddTask} from '@/components/Task/AddTask';
+import {getProject} from '@/firebase';
 import {Header} from '@/components/Layout';
+import {Project} from '@/model';
 import {Tasks} from '@/components/Task/Tasks';
+import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {useTasks} from '@/hook/useTasks';
 
@@ -9,13 +13,27 @@ type Params = {
 
 export default function ProjectView(): React.ReactNode {
   const params = useParams<Params>();
+  const [project, setProject] = useState<Project | null>(null);
   const projectId = params.projectId ?? null;
   const tasks = useTasks({projectId, isArchive: false});
 
+  useEffect(() => {
+    const fetchProject = async () => {
+      try {
+        const projectData = await getProject(projectId ?? '');
+        setProject(projectData);
+      } catch {
+        // No script.
+      }
+    };
+    fetchProject();
+  }, [projectId]);
+
   return (
     <>
-      <Header title={''} />
+      <Header title={project?.name ?? ''} />
       <Tasks data={tasks} />
+      <AddTask projectId={project?.id ?? ''} />
     </>
   );
 }
