@@ -1,7 +1,8 @@
-import React, {useState, useCallback} from 'react';
-import {firestore} from '@/firebase';
-import styled from 'styled-components';
+import {Button, InputText} from '@/components/UI';
 import {FaPlus} from 'react-icons/fa';
+import {firestore} from '@/firebase';
+import React, {useState, useCallback} from 'react';
+import styled from 'styled-components';
 
 interface Props {
   shouldShow?: boolean;
@@ -32,26 +33,22 @@ export const AddProject: React.FC<Props> = ({shouldShow = false}) => {
       <>
         {visible && (
           <StyledForm>
-            <input
+            <InputText
               value={projectValue}
               onChange={(e) => setProjectValue(e.target.value)}
-              type="text"
-              placeholder="プロジェクト名を入力"
             />
-            <StyledButtons>
-              <StyledAddButton
-                type="button"
-                onClick={() => addProject()}>
-                Add Project
-              </StyledAddButton>
-              <StyledCancelButton
+            <StyledActions>
+              <Button
+                variant="primary"
+                label="追加"
+                onClick={() => addProject()}
+              />
+              <Button
+                variant="secondary"
+                label="キャンセル"
                 onClick={() => setVisible(false)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') setVisible(false);
-                }}>
-                Cancel
-              </StyledCancelButton>
-            </StyledButtons>
+              />
+            </StyledActions>
           </StyledForm>
         )}
       </>
@@ -67,7 +64,7 @@ export const AddProject: React.FC<Props> = ({shouldShow = false}) => {
           onKeyDown={(e) => {
             if (e.key === 'Enter') setVisible(!visible);
           }}>
-          Add Project
+          プロジェクトを追加
         </StyledLabel>
       </StyledContainer>
     </>
@@ -87,33 +84,10 @@ const StyledForm = styled.div`
   row-gap: 8px;
 `;
 
-const StyledButtons = styled.div`
+const StyledActions = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  row-gap: 4px;
-`;
-
-const StyledAddButton = styled.button`
-  background-color: #a81f00;
-  color: #fff;
-  border: 1px solid transparent;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 1.3;
-  padding: 6px 12px 7px 12px;
-  display: inline-block;
-  white-space: nowrap;
-  border-radius: 3px;
-  text-decoration: none;
-  text-align: center;
-`;
-
-const StyledCancelButton = styled.button`
-  color: #555;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 6px 12px 7px 12px;
+  column-gap: 8px;
 `;
 
 const StyledIcon = styled.div`

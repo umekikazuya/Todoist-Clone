@@ -1,3 +1,4 @@
+import {Button, InputText} from '../UI';
 import {FaRegListAlt, FaRegCalendarAlt} from 'react-icons/fa';
 import {firestore} from '@/firebase';
 import React, {useState} from 'react';
@@ -71,40 +72,26 @@ export const AddTask: React.FC<AddTaskProps> = ({showAddTaskMain = true}) => {
               showTaskDateOverlay={showTaskDateOverlay}
               setShowTaskDateOverlay={setShowTaskDateOverlay}
             />
-            <StyledInputText
-              aria-label="Enter your task"
-              type="text"
+            <InputText
               value={task}
               onChange={(e) => setTask(e.target.value)}
             />
             <StyledActions>
-              <StyledPrimaryButton
-                type="button"
-                className="add-task__submit"
-                data-testid="add-task"
+              <Button
+                variant="primary"
+                label="タスクを追加"
                 onClick={() => {
                   addTask();
-                }}>
-                タスクを追加
-              </StyledPrimaryButton>
-              <StyledSecondaryButton
-                className="add-task__cancel"
-                data-testid="add-task-main-cancel"
+                }}
+              />
+              <Button
+                variant="secondary"
+                label="キャンセル"
                 onClick={() => {
                   setShowMain(false);
                   setShowProjectOverlay(false);
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    setShowMain(false);
-                    setShowProjectOverlay(false);
-                  }
-                }}
-                aria-label="Cancel adding a task"
-                tabIndex={0}
-                role="button">
-                Cancel
-              </StyledSecondaryButton>
+              />
             </StyledActions>
             <StyledFormOption
               onClick={() => setShowProjectOverlay(!showProjectOverlay)}
@@ -155,16 +142,11 @@ const StyledButtonLabel = styled.div`
 
 const StyledForm = styled.div`
   position: relative;
-`;
-
-const StyledInputText = styled.input`
+  margin-bottom: 20px;
   width: 100%;
-  border: 1px solid #ddd;
-  background-color: white !important;
-  border-radius: 3px;
-  height: 35px;
-  padding-left: 10px;
-  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
 `;
 
 const StyledFormOption = styled.span`
@@ -177,60 +159,4 @@ const StyledFormOption = styled.span`
 const StyledActions = styled.div`
   display: flex;
   gap: 8px;
-`;
-
-const StyledPrimaryButton = styled.button`
-  background-color: #db4c3f;
-  color: #fff;
-  font-weight: bold;
-  font-size: 13px !important;
-  justify-content: center;
-  border-radius: 5px;
-  width: 90px;
-  padding: 0 12px;
-  line-height: 32px;
-  text-decoration: none;
-  transition-duration: 0.3s;
-  transition-property: color, background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  &:hover {
-    background-color: #c3392c;
-    color: #fff;
-  }
-  &:active {
-    transform: scale(0.97);
-    transition: transform 0.2s cubic-bezier(0.02, 1.505, 0.745, 1.235);
-  }
-`;
-
-const StyledSecondaryButton = styled.button`
-  background-color: #f5f5f5;
-  color: #555;
-  font-weight: bold;
-  font-size: 13px !important;
-  justify-content: center;
-  border-radius: 5px;
-  max-width: 100%;
-  min-width: 68px;
-  padding: 0 12px;
-  line-height: 32px;
-  text-decoration: none;
-  transition-duration: 0.3s;
-  transition-property: color, background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    background-color: #e5e5e5;
-    color: #1a1a1a;
-  }
-  &:active {
-    transform: scale(0.97);
-    transition: transform 0.2s cubic-bezier(0.02, 1.505, 0.745, 1.235);
-  }
 `;
