@@ -1,5 +1,5 @@
 import { Tasks } from '@/components/feature/task/Tasks';
-import {Header} from '@/components/layout';
+import {Header} from '@/components/Layout';
 import { useTasks } from '@/hook/useTasks';
 
 export default function TodayView(): React.ReactNode {

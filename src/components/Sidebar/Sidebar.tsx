@@ -1,5 +1,7 @@
-import {AddTask, Filter, ProjectList} from '@/feature/sidebar';
 import styled from 'styled-components';
+import AddTask from './AddTask/AddTask';
+import Filter from './Filter/Filter';
+import { SidebarProject } from './Project';
 
 export default function Sidebar() {
   return (
@@ -7,7 +9,7 @@ export default function Sidebar() {
       <AddTask />
       <Menu>
         <Filter />
-        <ProjectList />
+        <SidebarProject />
       </Menu>
     </Nav>
   );

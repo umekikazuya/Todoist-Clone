@@ -1,10 +1,10 @@
-import {useState} from 'react';
-import {Project as ProjectType} from '@/model';
 import {FaHashtag, FaTrashAlt} from 'react-icons/fa';
 import {firestore} from '@/firebase';
+import {Project as ProjectType} from '@/model';
+import {useState} from 'react';
 import styled from 'styled-components';
 
-export default function Project({data}: {data: ProjectType}) {
+export default function ProjectListItem({data}: {data: ProjectType}) {
   const [showConfirm, setShowConfirm] = useState(false);
 
   const deleteProject = (id: string) => {
@@ -22,22 +22,20 @@ export default function Project({data}: {data: ProjectType}) {
         />
       </StyledIcon>
       <StyledLabel>{data.name}</StyledLabel>
-      <span
+      <StyledDeleteButton
         onClick={() => setShowConfirm(!showConfirm)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') setShowConfirm(!showConfirm);
         }}>
         <FaTrashAlt
-          width={24}
-          height={24}
+          size={14}
           fill="#666"
         />
         {showConfirm && (
           <StyledConfirm>
             <StyledConfirmInner>
               <StyledConfirmText>削除しますか？</StyledConfirmText>
-              <StyledButton
-                onClick={() => deleteProject(data.docId)}>
+              <StyledButton onClick={() => deleteProject(data.docId)}>
                 Delete
               </StyledButton>
               <StyledCancelButton
@@ -50,13 +48,14 @@ export default function Project({data}: {data: ProjectType}) {
             </StyledConfirmInner>
           </StyledConfirm>
         )}
-      </span>
+      </StyledDeleteButton>
     </>
   );
 }
 
 const StyledIcon = styled.span`
   display: flex;
+  align-items: center;
   height: 14px;
 `;
 
@@ -64,13 +63,23 @@ const StyledLabel = styled.span`
   padding-left: 6px;
 `;
 
+const StyledDeleteButton = styled.button`
+  display: flex;
+  align-items: center;
+  height: 14px;
+  margin-left: auto;
+`;
+
 const StyledConfirm = styled.div`
-  position: relative;
+  position: fixed;
 `;
 
 const StyledConfirmInner = styled.div`
-  position: absolute;
   width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
   z-index: 1;
   top: 85px;
   border-radius: 3px;
@@ -86,35 +95,65 @@ const StyledConfirmInner = styled.div`
 `;
 
 const StyledConfirmText = styled.div`
-margin-top: 5px;
-margin-bottom: 5px;
-line-height: normal;
-font-weight: normal;
-font-size: 15px;
-`
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: normal;
+  font-weight: normal;
+  font-size: 15px;
+`;
 const StyledButton = styled.div`
-  width: 50px;
   background-color: #db4c3f;
-  color: #fff !important;
-  border: 1px solid transparent;
-  margin-right: 5px;
-  margin-top: 10px;
+  color: #fff;
   font-weight: bold;
   font-size: 13px !important;
-  line-height: 17px;
-  padding: 6px 12px 7px 12px;
-  position: relative;
-  display: inline-block;
+  justify-content: center;
+  border-radius: 5px;
+  max-width: 100%;
+  min-width: 68px;
+  padding: 0 12px;
+  line-height: 32px;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  transition-property: color, background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
-  border-radius: 3px !important;
-  text-decoration: none !important;
-  text-align: center;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: #c3392c;
+    color: #fff;
+  }
+  &:active {
+    transform: scale(0.97);
+    transition: transform 0.2s cubic-bezier(0.02, 1.505, 0.745, 1.235);
+  }
 `;
 
 const StyledCancelButton = styled.button`
+  background-color: #f5f5f5;
   color: #555;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 2px 5px;
+  font-weight: bold;
+  font-size: 13px !important;
+  justify-content: center;
+  border-radius: 5px;
+  max-width: 100%;
+  min-width: 68px;
+  padding: 0 12px;
+  line-height: 32px;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  transition-property: color, background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: #e5e5e5;
+    color: #1a1a1a;
+  }
+  &:active {
+    transform: scale(0.97);
+    transition: transform 0.2s cubic-bezier(0.02, 1.505, 0.745, 1.235);
+  }
 `;

@@ -1,26 +1,17 @@
-import {LoadingView} from '@/views';
 import {Outlet} from 'react-router-dom';
-import {ProjectsProvider, TaskFilterProvider} from '../provider';
-import {Suspense} from 'react';
 import styled from 'styled-components';
-import Sidebar from './Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
 
 export default function Layout() {
   return (
-    <TaskFilterProvider>
-      <ProjectsProvider>
-        <Suspense fallback={<LoadingView />}>
-          <Container>
-            <Sidebar />
-            <MainArea>
-              <MainAreaWrapper>
-                <Outlet />
-              </MainAreaWrapper>
-            </MainArea>
-          </Container>
-        </Suspense>
-      </ProjectsProvider>
-    </TaskFilterProvider>
+    <Container>
+      <Sidebar />
+      <MainArea>
+        <MainAreaWrapper>
+          <Outlet />
+        </MainAreaWrapper>
+      </MainArea>
+    </Container>
   );
 }
 

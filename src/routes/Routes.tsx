@@ -1,4 +1,4 @@
-import {Layout} from '@/components/layout';
+import {Layout} from '@/components/Layout';
 import {ProjectView, TodayView} from '@/views';
 import {createBrowserRouter, Navigate, RouteObject} from 'react-router-dom';
 
