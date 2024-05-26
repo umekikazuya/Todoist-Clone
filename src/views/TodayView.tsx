@@ -1,6 +1,6 @@
-import { Tasks } from '@/components/feature/task/Tasks';
 import {Header} from '@/components/Layout';
-import { useTasks } from '@/hook/useTasks';
+import {Tasks} from '@/components/Task/Tasks';
+import {useTasks} from '@/hook/useTasks';
 
 export default function TodayView(): React.ReactNode {
   const tasks = useTasks({projectId: null, isArchive: false});

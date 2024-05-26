@@ -1,6 +1,7 @@
-import Task from './Task';
+import Task from './TaskItem';
 import {Task as TaskType} from '@/model';
 import styled from 'styled-components';
+import { AddTask } from './AddTask';
 
 export const Tasks = ({data}: {data: TaskType[]}) => {
   return (
@@ -10,7 +11,7 @@ export const Tasks = ({data}: {data: TaskType[]}) => {
           <Task key={task.id} data={task} />
         ))}
       </StyledList>
-      {/* @todo AddTask */}
+      <AddTask />
     </>
   );
 };
