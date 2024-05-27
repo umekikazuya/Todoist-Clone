@@ -12,7 +12,9 @@ export const Button: React.FC<ButtonProps> = ({variant, label, onClick}) => {
       $variant={variant}
       onClick={onClick}
       onKeyDown={(e) => {
-        if (e.key === 'Enter') {onClick};
+        if (e.key === 'Enter') {
+          onClick;
+        }
       }}>
       {label}
     </StyledButton>
@@ -20,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({variant, label, onClick}) => {
 };
 
 interface StyledButtonProps {
- $variant: 'primary' | 'secondary';
+  $variant: 'primary' | 'secondary';
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
@@ -40,8 +42,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
 
   &:active {
-        transform: scale(0.97);
-        transition: transform 0.2s cubic-bezier(0.02, 1.505, 0.745, 1.235);
+    transform: scale(0.97);
+    transition: transform 0.2s cubic-bezier(0.02, 1.505, 0.745, 1.235);
   }
 
   ${(props) =>

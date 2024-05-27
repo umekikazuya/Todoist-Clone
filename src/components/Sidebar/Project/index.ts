@@ -1,1 +1,1 @@
-export { default as SidebarProject } from './Project';
+export {default as SidebarProject} from './Project';

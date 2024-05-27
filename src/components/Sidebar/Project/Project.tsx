@@ -1,10 +1,9 @@
 import {FaChevronDown} from 'react-icons/fa';
 import styled from 'styled-components';
-import { AddProject } from './AddProject';
+import {AddProject} from './AddProject';
 import ProjectList from './ProjectList';
 
 export default function Project() {
-
   return (
     <>
       <div>

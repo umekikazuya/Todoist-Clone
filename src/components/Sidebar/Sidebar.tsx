@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import AddTask from './AddTask/AddTask';
 import Filter from './Filter/Filter';
-import { SidebarProject } from './Project';
+import {SidebarProject} from './Project';
 
 export default function Sidebar() {
   return (

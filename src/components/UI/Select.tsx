@@ -1,17 +1,24 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface SelectProps {
-  options: { value: string; label: string }[];
+  options: {value: string; label: string}[];
   value: string;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export const Select: React.FC<SelectProps> = ({ options, value, onChange = () => {} }) => {
+export const Select: React.FC<SelectProps> = ({
+  options,
+  value,
+  onChange = () => {},
+}) => {
   return (
-    
-    <StyledSelect value={value} onChange={onChange}>
-      {options.map(option => (
-        <option key={option.value} value={option.value}>
+    <StyledSelect
+      value={value}
+      onChange={onChange}>
+      {options.map((option) => (
+        <option
+          key={option.value}
+          value={option.value}>
           {option.label}
         </option>
       ))}
