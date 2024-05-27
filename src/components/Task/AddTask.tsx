@@ -1,10 +1,9 @@
-import {Button, InputText, Select} from '../UI';
-import {FaRegListAlt, FaRegCalendarAlt} from 'react-icons/fa';
+import {Button, InputDateTime, InputText, Select} from '../UI';
 import {firestore} from '@/firebase';
 import {Project} from '@/model';
+import {Timestamp} from 'firebase/firestore';
 import {useProjects} from '@/hook/useProjects';
 import React, {useEffect, useState} from 'react';
-import SelectDate from './SelectDate';
 import styled from 'styled-components';
 
 const {VITE_USER_ID} = import.meta.env;
@@ -30,9 +29,7 @@ export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
     projectId ? projectId : '',
   );
   // 選択UI.
-  const [taskDateValue, setTaskDateValue] = useState<string>('');
-  const [showTaskDateOverlay, setShowTaskDateOverlay] =
-    useState<boolean>(false);
+  const [dateTimeValue, setDateTimeValue] = useState<string>('');
 
   const {projects} = useProjects(VITE_USER_ID);
 
@@ -49,17 +46,21 @@ export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
   // タスク追加
   const addTask = () => {
     if (task.trim() && projectValue) {
+      // To TimeStamp.
+      const newDate = new Date(dateTimeValue);
+      const dateValue = Timestamp.fromDate(newDate);
       firestore
         .collection('tasks')
         .add({
           archived: false,
           projectId: projectValue,
           name: task,
-          date: taskDateValue,
+          date: dateValue,
           userId: VITE_USER_ID,
         })
         .then(() => {
           setTask('');
+          setDateTimeValue('');
           setVisibile(true);
         });
     }
@@ -78,11 +79,6 @@ export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
         </StyledAddTaskButton>
         {visibile && (
           <StyledForm>
-            <SelectDate
-              setTaskDateValue={setTaskDateValue}
-              showTaskDateOverlay={showTaskDateOverlay}
-              setShowTaskDateOverlay={setShowTaskDateOverlay}
-            />
             <InputText
               value={task}
               onChange={(e) => setTask(e.target.value)}
@@ -96,18 +92,12 @@ export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
                     setProjectValue(event.target.value);
                   }}
                 />
-                <StyledFormOption>
-                  <FaRegListAlt size={14} />
-                </StyledFormOption>
-                <StyledFormOption
-                  className="add-task__date"
-                  onClick={() => setShowTaskDateOverlay(!showTaskDateOverlay)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter')
-                      setShowTaskDateOverlay(!showTaskDateOverlay);
-                  }}>
-                  <FaRegCalendarAlt size={14} />
-                </StyledFormOption>
+                <InputDateTime
+                  value={dateTimeValue}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    setDateTimeValue(event.target.value);
+                  }}
+                />
               </StyledOptions>
 
               <StyledActions>
@@ -172,13 +162,7 @@ const StyledForm = styled.div`
 const StyledOptions = styled.div`
   display: flex;
   align-items: center;
-  row-gap: 8px;
-`;
-
-const StyledFormOption = styled.span`
-  cursor: pointer;
-  float: right;
-  color: gray;
+  column-gap: 8px;
 `;
 
 const StyledActionsWrapper = styled.div`
