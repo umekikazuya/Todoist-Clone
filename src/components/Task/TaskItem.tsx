@@ -25,8 +25,7 @@ export default function TaskItem({data}: {data: TaskType}) {
         onClick={() => archiveTask()}
         onKeyDown={(e) => {
           if (e.key === 'Enter') archiveTask();
-        }}
-      >
+        }}>
         <StyledArchiveButtonCircle />
       </StyledArchiveButton>
       <span>{data.name}</span>

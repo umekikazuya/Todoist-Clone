@@ -7,4 +7,5 @@ export type Task = {
   projectId: string;
   date: Timestamp;
   archived: boolean;
+  userId: string;
 };

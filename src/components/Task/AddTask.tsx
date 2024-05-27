@@ -1,6 +1,6 @@
 import {Button, InputDateTime, InputText, Select} from '../UI';
 import {firestore} from '@/firebase';
-import {Project} from '@/model';
+import {Project, Task} from '@/model';
 import {Timestamp} from 'firebase/firestore';
 import {useProjects} from '@/hook/useProjects';
 import React, {useEffect, useState} from 'react';
@@ -43,21 +43,29 @@ export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
     }
   }, [projectId]);
 
+  // 日付の有効性チェック関数
+  const isValidDate = (date: Date) => {
+    return date instanceof Date && !isNaN(date.getTime());
+  };
+
   // タスク追加
   const addTask = () => {
     if (task.trim() && projectValue) {
-      // To TimeStamp.
+      const taskDate: Omit<Task, 'id'> = {
+        archived: false,
+        projectId: projectValue,
+        name: task,
+        userId: VITE_USER_ID,
+      };
+
       const newDate = new Date(dateTimeValue);
-      const dateValue = Timestamp.fromDate(newDate);
+      if (isValidDate(newDate)) {
+        const dateValue = Timestamp.fromDate(newDate);
+        taskDate.date = dateValue;
+      }
       firestore
         .collection('tasks')
-        .add({
-          archived: false,
-          projectId: projectValue,
-          name: task,
-          date: dateValue,
-          userId: VITE_USER_ID,
-        })
+        .add(taskDate)
         .then(() => {
           setTask('');
           setDateTimeValue('');
