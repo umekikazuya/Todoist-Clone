@@ -1,8 +1,10 @@
+import {Timestamp} from 'firebase/firestore';
+
 export type Task = {
-  id: string,
-  docId: string,
+  id: string;
+  docId: string;
   name: string;
   projectId: string;
-  date: string;
+  date: Timestamp;
   archived: boolean;
 };
