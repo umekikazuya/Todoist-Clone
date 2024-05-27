@@ -1,6 +1,6 @@
-import { useProjects } from '@/hook/useProjects';
-import { Project } from '@/model';
-import { NavLink } from 'react-router-dom';
+import {useProjects} from '@/hook/useProjects';
+import {Project} from '@/model';
+import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 import ProjectListItem from './ProjectListItem';
 
@@ -11,15 +11,15 @@ export default function ProjectList() {
 
   return (
     <StyledList>
-    {data.map((project: Project) => (
-      <StyledListItem key={project.id}>
-        <StyledNavLink to={`/project/${project.id}`}>
-          <ProjectListItem data={project} />
-        </StyledNavLink>
-      </StyledListItem>
-    ))}
-  </StyledList>
-  )
+      {data.map((project: Project) => (
+        <StyledListItem key={project.id}>
+          <StyledNavLink to={`/project/${project.id}`}>
+            <ProjectListItem data={project} />
+          </StyledNavLink>
+        </StyledListItem>
+      ))}
+    </StyledList>
+  );
 }
 
 const StyledList = styled.ul`

@@ -1,5 +1,5 @@
 export type User = {
-  docId: string,
+  docId: string;
   firstName: string;
   lastName: string;
   twitter: string;

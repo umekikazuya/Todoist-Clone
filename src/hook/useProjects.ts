@@ -28,13 +28,13 @@ export const useProjects = (userId: string): UseProjects => {
           setLoading(false);
         },
         () => {
-          setError("Failed to fetch projects.");
+          setError('Failed to fetch projects.');
           setLoading(false);
-        }
+        },
       );
 
     return () => unsubscribe();
   }, [userId]);
 
-  return { projects, loading, error };
+  return {projects, loading, error};
 };

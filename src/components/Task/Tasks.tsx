@@ -7,7 +7,10 @@ export const Tasks = ({data}: {data: TaskType[]}) => {
     <>
       <StyledList>
         {data.map((task) => (
-          <Task key={task.id} data={task} />
+          <Task
+            key={task.id}
+            data={task}
+          />
         ))}
       </StyledList>
     </>

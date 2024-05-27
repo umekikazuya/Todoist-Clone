@@ -46,11 +46,6 @@ export const addTask = async (task: {
   return docRef.id;
 };
 
-// タスクを更新する関数
-export const updateTask = async (taskId: string, updates: Object) => {
-  await firestore.collection('tasks').doc(taskId).update(updates);
-};
-
 // タスクを削除する関数
 export const deleteTask = async (taskId: string) => {
   await firestore.collection('tasks').doc(taskId).delete();
@@ -82,11 +77,9 @@ export const getProjectById = async (
     if (projectDoc.exists) {
       return {id: projectDoc.id, ...projectDoc.data()} as Project;
     } else {
-      console.error('No project found with the given ID');
       return null;
     }
   } catch (error) {
-    console.error('Error fetching project:', error);
     throw new Error('Failed to fetch project.');
   }
 };
