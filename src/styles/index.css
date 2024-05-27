@@ -1,0 +1,156 @@
+/* General */
+html,
+body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.4);
+  background-color: #fcfaf8;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+body {
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: auto auto auto 0;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+body,
+input,
+textarea {
+  color: #202020;
+  font-family: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple Color Emoji",Helvetica,Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol';
+  font-size: 13px;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input,
+textarea {
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+textarea {
+  background-color: #fff;
+}
+
+select {
+  border-color: #eee;
+}
+
+select,
+select optgroup,
+select option {
+  background-color: #fff;
+  color: #202020;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table .content {
+  padding: 0;
+  width: 100%;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+td {
+  vertical-align: top;
+}
+
+img {
+  border: 0;
+}
+
+svg,
+img,
+embed,
+object,
+iframe {
+  vertical-align: bottom;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  color: #202020;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #f2efed;
+}
+a:hover {
+  background-color: #f2efed;
+}
+
+button {
+  background-color: initial;
+  border: none;
+  color: #202020;
+  cursor: pointer;
+  font-family: inherit;
+  /* font-size: 13px; */
+  margin: 0;
+  padding: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+button:disabled {
+  opacity: 0.3;
+}
+
+button:hover {
+  background-color: inherit;
+}
+
+::-moz-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}

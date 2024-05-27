@@ -1,26 +1,16 @@
-import {useState} from 'react';
-import { ProjectsProvider, TaskFilterProvider } from '@/components/provider';
-import { Content, Header, Sidebar } from '@/components/layout';
+import {AddTask} from '@/components/Task/AddTask';
+import {Header} from '@/components/Layout';
+import {Tasks} from '@/components/Task/Tasks';
+import {useTasks} from '@/hook/useTasks';
 
 export default function TodayView(): React.ReactNode {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const tasks = useTasks({projectId: null, isArchive: false});
 
   return (
     <>
-      <TaskFilterProvider>
-        <ProjectsProvider>
-          <main className={darkMode ? 'darkmode' : ''}>
-            <Header
-              darkMode={darkMode}
-              setDarkMode={setDarkMode}
-            />
-            <section className="content">
-              <Sidebar />
-              <Content />
-            </section>
-          </main>
-        </ProjectsProvider>
-      </TaskFilterProvider>
+      <Header title={'今日'} />
+      <Tasks data={tasks} />
+      <AddTask />
     </>
   );
 }
