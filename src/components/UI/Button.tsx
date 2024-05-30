@@ -1,10 +1,10 @@
 import styled, {css} from 'styled-components';
 
-interface ButtonProps {
+type ButtonProps = {
   variant: 'primary' | 'secondary';
   label: string;
   onClick?: () => void;
-}
+};
 
 export const Button: React.FC<ButtonProps> = ({variant, label, onClick}) => {
   return (
@@ -21,9 +21,9 @@ export const Button: React.FC<ButtonProps> = ({variant, label, onClick}) => {
   );
 };
 
-interface StyledButtonProps {
+type StyledButtonProps = {
   $variant: 'primary' | 'secondary';
-}
+};
 
 const StyledButton = styled.button<StyledButtonProps>`
   font-weight: bold;
