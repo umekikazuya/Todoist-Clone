@@ -1,5 +1,5 @@
 import {Layout} from '@/components/Layout';
-import {ProjectView, TodayView} from '@/views';
+import {ProjectView, DefaultView} from '@/views';
 import {createBrowserRouter, Navigate, RouteObject} from 'react-router-dom';
 
 // ルートの設定.
@@ -21,7 +21,15 @@ const routes: RouteObject[] = [
       // Today.
       {
         path: 'today',
-        element: <TodayView />,
+        element: <DefaultView />,
+      },
+      {
+        path: 'inbox',
+        element: <DefaultView />,
+      },
+      {
+        path: 'next',
+        element: <DefaultView />,
       },
       // By project.
       {
