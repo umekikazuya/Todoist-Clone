@@ -7,37 +7,29 @@ export default function Filter() {
     <>
       <StyledList>
         <StyledListItem>
-          <Link
-            to="/inbox"
-            children={
-              <LinkContent
-                icon={FaInbox}
-                label="インボックス"
-              />
-            }
-          />
+          <Link to="/inbox">
+            <LinkContent
+              icon={FaInbox}
+              label="インボックス"
+            />
+          </Link>
         </StyledListItem>
         <StyledListItem>
-          <Link
-            to="/today"
-            children={
-              <LinkContent
-                icon={FaRegCalendar}
-                label="今日"
-              />
-            }
-          />
+          <Link to="/today">
+            {' '}
+            <LinkContent
+              icon={FaRegCalendar}
+              label="今日"
+            />
+          </Link>
         </StyledListItem>
         <StyledListItem>
-          <Link
-            to="/next"
-            children={
-              <LinkContent
-                icon={FaRegCalendarAlt}
-                label="近日予定"
-              />
-            }
-          />
+          <Link to="/next">
+            <LinkContent
+              icon={FaRegCalendarAlt}
+              label="近日予定"
+            />
+          </Link>
         </StyledListItem>
       </StyledList>
     </>
