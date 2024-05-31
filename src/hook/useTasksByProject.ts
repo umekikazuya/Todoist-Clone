@@ -1,11 +1,10 @@
-import 'firebase/firestore';
 import {firestore} from '@/firebase';
-import {Task} from '@/model';
+import type {Task} from '@/model';
 import {useState, useEffect} from 'react';
 
 const {VITE_USER_ID} = import.meta.env;
 
-export const useTasks = ({
+export const useTasksByProject = ({
   projectId,
   isArchive,
 }: {

@@ -5,7 +5,7 @@ import {Project} from '@/model';
 import {Tasks} from '@/components/Task/Tasks';
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import {useTasks} from '@/hook/useTasks';
+import {useTasksByProject} from '@/hook/useTasksByProject';
 
 type Params = {
   projectId: string;
@@ -15,7 +15,7 @@ export default function ProjectView(): React.ReactNode {
   const params = useParams<Params>();
   const [project, setProject] = useState<Project | null>(null);
   const projectId = params.projectId ?? null;
-  const tasks = useTasks({projectId, isArchive: false});
+  const tasks = useTasksByProject({projectId, isArchive: false});
 
   useEffect(() => {
     const fetchProject = async () => {
