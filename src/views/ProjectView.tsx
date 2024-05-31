@@ -1,4 +1,4 @@
-import { AddButton, List } from '@/components/Task';
+import {AddButton, List} from '@/components/Task';
 import {getProject} from '@/firebase';
 import {Header} from '@/components/Layout';
 import {Project} from '@/model';

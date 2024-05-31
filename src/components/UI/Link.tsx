@@ -20,7 +20,11 @@ export const Link: React.FC<LinkProps> = ({to, children}) => {
 };
 
 // リンクコンテンツ. 編集ボタン・削除ボタン等を任意で指定可能.
-export const LinkContent: React.FC<LinkContentProps> = ({icon: Icon, label, actionButton}) => {
+export const LinkContent: React.FC<LinkContentProps> = ({
+  icon: Icon,
+  label,
+  actionButton,
+}) => {
   return (
     <>
       <StyledLinkIcon>
