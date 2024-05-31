@@ -2,7 +2,7 @@ import {firestore} from '@/firebase';
 import {Task as TaskType} from '@/model';
 import styled from 'styled-components';
 
-export default function TaskItem({data}: {data: TaskType}) {
+export default function ListItem({data}: {data: TaskType}) {
   // Set archive.
   const archiveTask = () => {
     firestore

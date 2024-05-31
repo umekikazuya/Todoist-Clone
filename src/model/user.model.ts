@@ -3,5 +3,4 @@ export type User = {
   firstName: string;
   lastName: string;
   twitter: string;
-  userId: string;
 };

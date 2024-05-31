@@ -1,9 +1,15 @@
+import React from 'react';
 import styled, {css} from 'styled-components';
 
 type ButtonProps = {
   variant: 'primary' | 'secondary';
   label: string;
   onClick?: () => void;
+};
+
+type AddButtonProps = {
+  label: string;
+  onClick: () => void;
 };
 
 export const Button: React.FC<ButtonProps> = ({variant, label, onClick}) => {
@@ -18,6 +24,19 @@ export const Button: React.FC<ButtonProps> = ({variant, label, onClick}) => {
       }}>
       {label}
     </StyledButton>
+  );
+};
+
+export const AddButton: React.FC<AddButtonProps> = ({label, onClick}) => {
+  return (
+    <StyledAddTaskButton
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') onClick;
+      }}>
+      <StyledAddTaskButtonIcon>+</StyledAddTaskButtonIcon>
+      <StyledAddTaskButtonLabel>{label}</StyledAddTaskButtonLabel>
+    </StyledAddTaskButton>
   );
 };
 
@@ -69,4 +88,26 @@ const StyledButton = styled.button<StyledButtonProps>`
         color: #1a1a1a;
       }
     `}
+`;
+
+const StyledAddTaskButton = styled.button`
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #545454;
+
+  &:hover {
+    color: #dd4b39;
+  }
+`;
+
+const StyledAddTaskButtonIcon = styled.span`
+  color: #dd4b39;
+  font-size: 18px;
+`;
+
+const StyledAddTaskButtonLabel = styled.div`
+  display: inline-block;
+  color: inherit;
+  font-size: 14px;
+  margin-left: 15px;
 `;
