@@ -6,10 +6,10 @@ Firebaseを活用したTodoistのCloneアプリケーションです。
 本家と加えるとかなり簡素ではありますが、ディレクトリ構成やComponents設計等参考いただけますと幸いです。
 
 ### Tech Stack
-#### フロント言語(フレームワーク)
+#### Frontend
 - React(TypeScript)
 
-#### データベース
+#### Database
 - Firestore(Firebase)
 
 ### 機能
