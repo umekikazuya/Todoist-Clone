@@ -13,10 +13,9 @@ export default function List() {
     <StyledList>
       {data.map((project: Project) => (
         <li key={project.id}>
-          <Link
-            to={`/project/${project.id}`}
-            children={<ListItem data={project} />}
-          />
+          <Link to={`/project/${project.id}`}>
+            <ListItem data={project} />
+          </Link>
         </li>
       ))}
     </StyledList>

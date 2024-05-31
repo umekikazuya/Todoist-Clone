@@ -1,6 +1,6 @@
 import {Button, InputDate, InputText, InputTime, Select} from '../UI';
 import {firestore} from '@/firebase';
-import {Project, Task} from '@/model';
+import type {Project, Task} from '@/model';
 import {Timestamp} from 'firebase/firestore';
 import {useEffect, useState} from 'react';
 import {useProjects} from '@/hook/useProjects';
@@ -53,7 +53,7 @@ function getNow(): string {
  * @returns {Boolean}
  */
 function isValidDate(date: Date): boolean {
-  return date instanceof Date && !isNaN(date.getTime());
+  return date instanceof Date && !Number.isNaN(date.getTime());
 }
 
 export const AddForm: React.FC<AddFormProps> = ({
