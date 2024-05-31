@@ -1,13 +1,13 @@
-import Task from './TaskItem';
 import {Task as TaskType} from '@/model';
 import styled from 'styled-components';
+import ListItem from './ListItem';
 
-export const Tasks = ({data}: {data: TaskType[]}) => {
+export const List = ({data}: {data: TaskType[]}) => {
   return (
     <>
       <StyledList>
         {data.map((task) => (
-          <Task
+          <ListItem
             key={task.id}
             data={task}
           />

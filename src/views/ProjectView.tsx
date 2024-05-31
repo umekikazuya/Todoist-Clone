@@ -1,8 +1,7 @@
-import {AddTask} from '@/components/Task/AddTask';
+import { AddButton, List } from '@/components/Task';
 import {getProject} from '@/firebase';
 import {Header} from '@/components/Layout';
 import {Project} from '@/model';
-import {Tasks} from '@/components/Task/Tasks';
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {useTasksByProject} from '@/hook/useTasksByProject';
@@ -32,8 +31,8 @@ export default function ProjectView(): React.ReactNode {
   return (
     <>
       <Header title={project?.name ?? ''} />
-      <Tasks data={tasks} />
-      <AddTask projectId={project?.id ?? ''} />
+      <List data={tasks} />
+      <AddButton projectId={project?.id ?? undefined} />
     </>
   );
 }

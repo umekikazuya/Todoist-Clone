@@ -1,8 +1,7 @@
-import {AddTask} from '@/components/Task/AddTask';
+import {AddButton, List} from '@/components/Task';
 import {Header} from '@/components/Layout';
-import {Tasks} from '@/components/Task/Tasks';
-import {useTasksByFilter} from '@/hook/useTasksByFilter';
 import {useLocation} from 'react-router-dom';
+import {useTasksByFilter} from '@/hook/useTasksByFilter';
 
 const filterParameters: Record<string, 'inbox' | 'today' | 'next'> = {
   '/inbox': 'inbox',
@@ -17,9 +16,17 @@ export default function DefaultView(): JSX.Element {
 
   return (
     <>
-      <Header title={filter === 'inbox' ? 'インボックス' : filter === 'today' ? '今日' : '近日予定'} />
-      <Tasks data={tasks} />
-      <AddTask />
+      <Header
+        title={
+          filter === 'inbox'
+            ? 'インボックス'
+            : filter === 'today'
+              ? '今日'
+              : '近日予定'
+        }
+      />
+      <List data={tasks} />
+      <AddButton />
     </>
   );
 }
