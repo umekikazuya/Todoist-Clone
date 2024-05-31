@@ -1,10 +1,10 @@
 import {Button, InputDate, InputText, InputTime, Select} from '../UI';
 import {firestore} from '@/firebase';
-import type {Project, Task} from '@/model';
 import {Timestamp} from 'firebase/firestore';
 import {useEffect, useState} from 'react';
 import {useProjects} from '@/hook/useProjects';
 import styled from 'styled-components';
+import type {Project, Task} from '@/model';
 
 const {VITE_USER_ID} = import.meta.env;
 
