@@ -1,8 +1,8 @@
 import {Link} from '@/components/UI';
-import {Project} from '@/model';
 import {useProjects} from '@/hook/useProjects';
 import ListItem from './ListItem';
 import styled from 'styled-components';
+import type {Project} from '@/model';
 
 const {VITE_USER_ID} = import.meta.env;
 
