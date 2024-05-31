@@ -1,4 +1,23 @@
 # Todoist Clone App
+- [アプリについて](#%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+  - [Tech Stack](#tech-stack)
+    - [Frontend](#frontend)
+    - [Database](#database)
+  - [機能](#%E6%A9%9F%E8%83%BD)
+  - [非機能](#%E9%9D%9E%E6%A9%9F%E8%83%BD)
+  - [未実装（今後やりたいこと）](#%E6%9C%AA%E5%AE%9F%E8%A3%85%E4%BB%8A%E5%BE%8C%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8)
+- [環境構築](#%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)
+  - [001. ソースコード取得 ( `git clone` )](#001-%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E5%8F%96%E5%BE%97--git-clone)
+  - [002. Package(ライブラリ)のインストール](#002-package%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)
+  - [003. Firebase設定](#003-firebase%E8%A8%AD%E5%AE%9A)
+    - [1. Firebaseプロジェクトの追加](#1-firebase%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E8%BF%BD%E5%8A%A0)
+    - [2. アプリとFirebaseの接続設定](#2-%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A8firebase%E3%81%AE%E6%8E%A5%E7%B6%9A%E8%A8%AD%E5%AE%9A)
+    - [3. Databaseの初期構築](#3-database%E3%81%AE%E5%88%9D%E6%9C%9F%E6%A7%8B%E7%AF%89)
+    - [4. 開発サーバー起動](#4-%E9%96%8B%E7%99%BA%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E8%B5%B7%E5%8B%95)
+- [ディレクトリ構成](#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90)
+  - [設計](#%E8%A8%AD%E8%A8%88)
+  - [詳細](#%E8%A9%B3%E7%B4%B0)
+- [貢献](#%E8%B2%A2%E7%8C%AE)
 
 ## アプリについて
 Firebaseを活用したTodoistのCloneアプリケーションです。
@@ -20,7 +39,7 @@ Firebaseを活用したTodoistのCloneアプリケーションです。
   - プロジェクト
 - リアルタイム同期: Firestoreを使用したデータのリアルタイム同期が可能です。
 
-### 非機能要件
+### 非機能
 - RoutingSystem<br>[ReactRouter](https://reactrouter.com/en/main)にて構築。
 - スタイル<br>[StyledComponents](https://styled-components.com/)にて構築。
 
