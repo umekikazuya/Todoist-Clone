@@ -21,10 +21,8 @@ Firebaseを活用したTodoistのCloneアプリケーションです。
 - リアルタイム同期: Firestoreを使用したデータのリアルタイム同期が可能です。
 
 ### 非機能要件
-- RoutingSystem
-[ReactRouter](https://reactrouter.com/en/main)にて構築。
-- スタイル
-[StyledComponents](https://styled-components.com/)にて構築。
+- RoutingSystem<br>[ReactRouter](https://reactrouter.com/en/main)にて構築。
+- スタイル<br>[StyledComponents](https://styled-components.com/)にて構築。
 
 ### 未実装（今後やりたいこと）
 1. サブタスク
