@@ -1,9 +1,9 @@
 import {FaHashtag, FaTrashAlt} from 'react-icons/fa';
 import {firestore} from '@/firebase';
 import {LinkContent, Modal} from '@/components/UI';
-import {Project as ProjectType} from '@/model';
 import {useState} from 'react';
 import styled from 'styled-components';
+import type {Project as ProjectType} from '@/model';
 
 export default function ListItem({data}: {data: ProjectType}) {
   const [showConfirm, setShowConfirm] = useState(false);
