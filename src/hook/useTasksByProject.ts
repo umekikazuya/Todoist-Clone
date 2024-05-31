@@ -1,4 +1,3 @@
-import 'firebase/firestore';
 import {firestore} from '@/firebase';
 import {Task} from '@/model';
 import {useState, useEffect} from 'react';

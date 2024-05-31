@@ -25,12 +25,12 @@ export const useTasksByFilter = ({variant}: FilterProps) => {
     let query = firestore
       .collection('tasks')
       .where('userId', '==', VITE_USER_ID)
-      .where('archived', '==', false)
-      .orderBy('date', 'asc');
+      .where('archived', '==', false);
+    // .orderBy('date', 'asc');
 
     switch (variant) {
       case 'inbox':
-        // No additional filtering for inbox
+        // No additional filtering for inbox.
         break;
       case 'today':
         query = query

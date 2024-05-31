@@ -1,4 +1,4 @@
-import {Button, InputDateTime, InputText, Select} from '../UI';
+import {Button, InputDate, InputText, InputTime, Select} from '../UI';
 import {firestore} from '@/firebase';
 import {Project, Task} from '@/model';
 import {Timestamp} from 'firebase/firestore';
@@ -19,6 +19,18 @@ const projectDataToOptions = (projects: Project[]) => {
   }));
 };
 
+const getNow = () => {
+  const d = new Date();
+  let month = '' + (d.getMonth() + 1);
+  let day = '' + d.getDate();
+  const year = d.getFullYear();
+
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return [year, month, day].join('-');
+};
+
 export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
   // Formの表示/非表示.
   const [visibile, setVisibile] = useState<boolean>(false);
@@ -29,7 +41,8 @@ export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
     projectId ? projectId : '',
   );
   // 選択UI.
-  const [dateTimeValue, setDateTimeValue] = useState<string>('');
+  const [dateValue, setDateValue] = useState<string>(getNow());
+  const [timeValue, setTimeValue] = useState<string>('00:00');
 
   const {projects} = useProjects(VITE_USER_ID);
 
@@ -58,7 +71,7 @@ export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
         userId: VITE_USER_ID,
       };
 
-      const newDate = new Date(dateTimeValue);
+      const newDate = new Date(`${dateValue}T${timeValue}`);
       if (isValidDate(newDate)) {
         const dateValue = Timestamp.fromDate(newDate);
         taskDate.date = dateValue;
@@ -68,7 +81,6 @@ export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
         .add(taskDate)
         .then(() => {
           setTask('');
-          setDateTimeValue('');
           setVisibile(true);
         });
     }
@@ -100,14 +112,19 @@ export const AddTask: React.FC<AddTaskProps> = ({projectId}) => {
                     setProjectValue(event.target.value);
                   }}
                 />
-                <InputDateTime
-                  value={dateTimeValue}
+                <InputDate
+                  value={dateValue}
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    setDateTimeValue(event.target.value);
+                    setDateValue(event.target.value);
+                  }}
+                />
+                <InputTime
+                  value={timeValue}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    setTimeValue(event.target.value);
                   }}
                 />
               </StyledOptions>
-
               <StyledActions>
                 <Button
                   variant="primary"
