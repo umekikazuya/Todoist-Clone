@@ -1,5 +1,5 @@
 import {firestore} from '@/firebase';
-import {Task} from '@/model';
+import type {Task} from '@/model';
 import {useState, useEffect} from 'react';
 import {Timestamp} from 'firebase/firestore';
 

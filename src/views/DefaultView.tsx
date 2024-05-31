@@ -17,7 +17,7 @@ export default function DefaultView(): JSX.Element {
 
   return (
     <>
-      <Header title={'今日'} />
+      <Header title={filter === 'inbox' ? 'インボックス' : filter === 'today' ? '今日' : '近日予定'} />
       <Tasks data={tasks} />
       <AddTask />
     </>
